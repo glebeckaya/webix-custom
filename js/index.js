@@ -20,11 +20,9 @@ const filmsList = {
                                     break;
                                 case 1:
                                     $$("listFilms").sort("#title#", "asc");
-                                    webix.html.addCss(this.$view.firstChild.firstChild,`asc-sort`);
                                     break;
                                 case 2:
                                     $$("listFilms").sort("#title#", "desc");
-                                    webix.html.addCss(this.$view.firstChild.firstChild,`desc-sort`);
                                     break;
                                 default:
                                     break;
@@ -45,9 +43,12 @@ const filmsList = {
 }
 
 
-const form1 = { view: "customForm", fields: ["one", "two"], saveAction: function() {
-    webix.message("saved!")
-} };
+const form1 = { 
+    view: "customForm", 
+    id: "new",
+    fields: ["one", "two"], 
+    saveAction: function() { webix.message("saved!")}
+};
 
 const form2 = { view: "customForm", fields: ["one", "two", "three"] };
 

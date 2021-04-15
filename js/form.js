@@ -3,9 +3,10 @@ export default webix.protoUI({
     name: "customForm",
     defaults:{
         width: 600,
+        saveAction: function() { webix.message("Form is saved!") },
+        clearAction: function() { this.getFormView().clear() } 
     },
     $init: function(config){
-        if (!config.saveAction) {config.saveAction = function() { webix.message("Form is saved!")}};
         const elems = config.fields;
         config.elements = [
             ...elems.map(elem => Object(
@@ -13,16 +14,10 @@ export default webix.protoUI({
             )),
             {
                 cols: [
-                    { view: "button", value: "Cancel"}, 
-                    { view: "button", value: "Save", click: config.saveAction}
+                    { view: "button", value: "Clear", click: config.clearAction || this.defaults.clearAction }, 
+                    { view: "button", value: "Save", click: config.saveAction || this.defaults.saveAction }
                 ]
             }
         ];
-    },
-    fields_setter: function(value){
-        return value;
-    },
-    saveAction_setter: function(value) {
-        return value;
     }
 }, webix.ui.form);

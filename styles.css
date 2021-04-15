@@ -1,6 +1,9 @@
-.webix_secondary  button.asc-sort { 
+.default-sort .webix_button { 
+    background: rgb(192, 149, 129);
+}
+.asc-sort .webix_button { 
     background: rgb(161, 151, 204);
 }
-.webix_secondary  button.desc-sort { 
+.desc-sort .webix_button { 
     background: rgb(177, 211, 175);
 }
