@@ -10,7 +10,7 @@ export default webix.protoUI({
         const elems = config.fields;
         config.elements = [
             ...elems.map(elem => Object(
-                { view: "text", label: elem, bottomPadding: 20  }
+                { view: "text", label: elem, name: elem, bottomPadding: 20  }
             )),
             {
                 cols: [
